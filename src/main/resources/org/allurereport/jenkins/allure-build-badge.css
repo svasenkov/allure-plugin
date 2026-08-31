@@ -1,0 +1,25 @@
+/* Builds card: in-progress row packs 104px .app-progress-bar + cancel + badges
+   with justify-content:start, so icons sit against the bar after wrap.
+   Grow the bar; keep Allure marks on the trailing edge like completed rows. */
+.app-builds-container__item__inner__controls:has(.app-progress-bar) {
+  flex: 1 1 auto;
+}
+
+.app-builds-container__item__inner__controls:has(.app-progress-bar) .app-progress-bar {
+  flex: 1 1 auto;
+  width: auto;
+  min-width: 104px;
+}
+
+/* Report badges and TestOps (bare <a><img>, allure-jenkins/logo.png): kill the
+   inline-anchor strut so the PNG does not sit on the text baseline below SVGs. */
+.app-builds-container__item__inner__controls > a:has(> img) {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  line-height: 0;
+}
+
+.app-builds-container__item__inner__controls > a:has(> img) > img {
+  display: block;
+}
